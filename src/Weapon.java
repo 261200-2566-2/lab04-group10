@@ -1,13 +1,12 @@
-import java.util.List;
-
-public class Sword implements Equipment{
+public class Weapon implements Equipment {
     private String name;
     private String jobWeapon;
     private int AtkUp;
     private int DefUp;
     private int Max_manaUp;
     private int down_speed;
-    private Sword(String name,String jobWeapon,int AtkUp,int DefUp,int Max_manaUp,int down_speed){
+
+    public Weapon(String name, String jobWeapon, int AtkUp, int DefUp, int Max_manaUp, int down_speed) {
         this.name = name;
         this.jobWeapon = jobWeapon;
         this.AtkUp = AtkUp;
@@ -44,5 +43,10 @@ public class Sword implements Equipment{
     @Override
     public String getName() {
         return name;
+    }
+
+    // Static method to create instances of Sword
+    public static Weapon createWeapon(String name, String jobWeapon, int AtkUp, int DefUp, int Max_manaUp, int down_speed) {
+        return new Weapon(name, jobWeapon, AtkUp, DefUp, Max_manaUp, down_speed);
     }
 }

@@ -1,17 +1,40 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        Warrior warrior = new Warrior("สุดหล่อ", "Knight", 100, 100, 20, 15, 50, 50, 20);
+        Equipment sword = Weapon.createWeapon("ดาบโง่ๆ", "Knight", 2, 0, 10, 1);
+        Equipment shield = Weapon.createWeapon("โล่กากๆ", "Knight", 0, 50000, 0, 5);
+        List<Equipment> warriorEquipment = new ArrayList<>();
+        warriorEquipment.add(sword);
+        warriorEquipment.add(shield);
+        warrior.equipAccessory(warriorEquipment);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("-------------------------------------------");
+        System.out.println("Warrior Stats:");
+        System.out.println("-------------------------------------------");
+        System.out.println("HP: " + warrior.getHp(warrior.getLevel()));
+        System.out.println("ATK: " + warrior.getAtk(warrior.getLevel()));
+        System.out.println("DEF: " + warrior.getDef(warrior.getLevel()));
+        System.out.println("Mana: " + warrior.getMana(warrior.getLevel()));
+        System.out.println("Run Speed: " + warrior.getRunSpeed(warrior.getLevel()));
+        System.out.println("-------------------------------------------");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Mage mage = new Mage("อุเกว","Mage",120,100,30,5,100,30,25);
+        Equipment staff = Weapon.createWeapon("ก๋วยเตี๋ยว","Mage",5000,0,10000,2);
+        List<Equipment> mageEquipment = new ArrayList<>();
+        mageEquipment.add(staff);
+        mage.equipAccessory(mageEquipment);
+
+        System.out.println("-------------------------------------------");
+        System.out.println("Mage Stats:");
+        System.out.println("-------------------------------------------");
+        System.out.println("HP: " + mage.getHp(mage.getLevel()));
+        System.out.println("ATK: " + mage.getAtk(mage.getLevel()));
+        System.out.println("DEF: " + mage.getDef(mage.getLevel()));
+        System.out.println("Mana: " + mage.getMana(mage.getLevel()));
+        System.out.println("Run Speed: " + mage.getRunSpeed(mage.getLevel()));
+        System.out.println("-------------------------------------------");
     }
 }
