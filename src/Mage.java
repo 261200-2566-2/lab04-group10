@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Warrior {
+public class Mage {
     private String name;
     private String Job;
     private int level;
@@ -13,7 +13,7 @@ public class Warrior {
     private int runSpeed;
     private List<Equipment> Equipments;
 
-    public Warrior(String name, String Job, int level, int Hp, int Atk, int Def, int mana, int stamina, int runSpeed) {
+    public Mage(String name, String Job, int level, int Hp, int Atk, int Def, int mana, int stamina, int runSpeed) {
         this.name = name;
         this.Job = Job;
         this.level = level;
@@ -37,7 +37,7 @@ public class Warrior {
     }
 
     public int getHp(int level) {
-        return Hp + (10 * level);
+        return Hp + (5 * level);
     }
 
     public int getLevel() {
@@ -46,21 +46,21 @@ public class Warrior {
 
     public int getDef(int level) {
         int accessoryDef = Equipments.stream().mapToInt(Equipment::getDefense).sum();
-        return accessoryDef + (10 * level) + Def;
+        return accessoryDef + (5 * level) + Def;
     }
 
     public int getAtk(int level) {
         int accessoryAtk = Equipments.stream().mapToInt(Equipment::getDamage).sum();
-        return accessoryAtk + (10 * level) + Atk;
+        return accessoryAtk + (15 * level) + Atk;
     }
 
     public int getMana(int level) {
         int accessoryMana = Equipments.stream().mapToInt(Equipment::getMana).sum();
-        return accessoryMana + (2 * level) + mana;
+        return accessoryMana + (10 * level) + mana;
     }
 
     public int getRunSpeed(int level) {
         int accessorySpeed = Equipments.stream().mapToInt(Equipment::getSpeed).sum();
-        return (level) + runSpeed - (accessorySpeed);
+        return (level) + runSpeed - accessorySpeed;
     }
 }
