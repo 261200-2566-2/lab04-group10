@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Warrior {
+    //สร้างคลาสแล้วใส่ว่าจะให้คลาสนี้มีค่าอะไรบ้าง
     private String name;
     private String Job;
     private int level;
@@ -11,7 +12,7 @@ public class Warrior {
     private int mana;
     private int stamina;
     private int runSpeed;
-    private List<Equipment> Equipments;
+    private List<Equipment> Equipments;//สร้าง list จองสวมใส่
 
     public Warrior(String name, String Job, int level, int Hp, int Atk, int Def, int mana, int stamina, int runSpeed) {
         this.name = name;
@@ -25,7 +26,7 @@ public class Warrior {
         this.runSpeed = runSpeed;
         this.Equipments = new ArrayList<>();
     }
-    public void equipAccessory(List<Equipment> equipmentList) {
+    public void equipAccessory(List<Equipment> equipmentList) {//ใส่อุปกรณ์ตาม list
         for (Equipment equipment : equipmentList) {
             if (equipment.getJob() == null || !equipment.getJob().equals(this.Job)) {
                 System.out.println(this.name + " ใส่ " + equipment.getName() + " ไม่ได้");
