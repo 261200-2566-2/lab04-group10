@@ -1,0 +1,16 @@
+:เราได้สร้างออกมาเป็น 2 คลาส คือ Warrior, Mage แต่ละคลาสการเติบโตของค่า stat จะแตกต่างกัน และสร้างอาชีพขึ้นมา
+
+:Equipment ของแต่ละอาชีพแยกกันซึ่ง Equipment ของอาชีพ Knight จะใส่กับคลาส Mage ไม่ได้และสามารถใส่ได้ไม่จำกัดแต่ต้องเป็นอาชีพเดียวกันกับไอเทมชิ้นนั้น
+
+design interface(s) to represent at least two types of RPG characters
+:การออกแบบคลาส Warrior และ Mage จะคล้ายๆกันแตกต่างกันแค่การเติบโตของ Stat ตามเลเวลจะไม่เหมือนกัน
+
+design interface(s) to represent at least two types of accessories
+:accessories นั้นสามารถสร้างได้ไม่จำกัดตามความคิดสร้างสรรค์ แต่จะมีการกำหนดค่าstatที่ให้กับตัวละครอย่างตายตัว
+และสามารถใส่ accessories ได้หลายชิ้นในพร้อมๆกัน
+
+
+
+
+
+

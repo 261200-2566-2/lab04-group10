@@ -3,13 +3,15 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        //สร้างอาชีพ knight และกำหนดค่า stat เริ่มต้น
         Warrior warrior = new Warrior("สุดหล่อ", "Knight", 100, 100, 20, 15, 50, 50, 20);
+        //สร้างอาวุธของอาชีพขึ้นมา
         Equipment sword = Weapon.createWeapon("ดาบโง่ๆ", "Knight", 2, 0, 10, 1);
         Equipment shield = Weapon.createWeapon("โล่กากๆ", "Knight", 0, 50000, 0, 5);
-        List<Equipment> warriorEquipment = new ArrayList<>();
+        List<Equipment> warriorEquipment = new ArrayList<>();//list ของสวมใส่
         warriorEquipment.add(sword);
         warriorEquipment.add(shield);
-        warrior.equipAccessory(warriorEquipment);
+        warrior.equipAccessory(warriorEquipment);//ใส่ของสวมใส่ที่เก็บไว้ใน list
 
         System.out.println("-------------------------------------------");
         System.out.println("Warrior Stats:");

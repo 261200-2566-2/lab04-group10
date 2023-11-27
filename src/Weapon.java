@@ -45,7 +45,6 @@ public class Weapon implements Equipment {
         return name;
     }
 
-    // Static method to create instances of Sword
     public static Weapon createWeapon(String name, String jobWeapon, int AtkUp, int DefUp, int Max_manaUp, int down_speed) {
         return new Weapon(name, jobWeapon, AtkUp, DefUp, Max_manaUp, down_speed);
     }
