@@ -1,10 +1,6 @@
 public class Weapon implements Equipment {
-    private String name;
-    private String jobWeapon;
-    private int AtkUp;
-    private int DefUp;
-    private int Max_manaUp;
-    private int down_speed;
+    private String name , jobWeapon;
+    private int AtkUp , DefUp , Max_manaUp , down_speed;
 
     public Weapon(String name, String jobWeapon, int AtkUp, int DefUp, int Max_manaUp, int down_speed) {
         this.name = name;

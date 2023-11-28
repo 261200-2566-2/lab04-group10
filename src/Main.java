@@ -1,18 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //สร้างอาชีพ knight และกำหนดค่า status เริ่มต้น
-        Warrior warrior = new Warrior("สุดหล่อ", "Knight", 100, 100, 20, 15, 50, 50, 20);
+//        player a = new player();
+//        Scanner s = new Scanner(System.in);
+//        System.out.println("Choose a character (Warrior/Mage): ");
+//        String job = s.nextLine();
+//        a.chooseCharacter(job);
+
+
+        Warrior warrior = new Warrior("CC", "Knight");
         //สร้างอาวุธของอาชีพขึ้นมา
-        Equipment sword = Weapon.createWeapon("ดาบโง่ๆ", "Knight", 2, 0, 10, 1);
-        Equipment shield = Weapon.createWeapon("โล่กากๆ", "Knight", 0, 50000, 0, 5);
+        Equipment sword = Weapon.createWeapon("EXTREMIN", "Knight", 2, 0, 10, 1);
+        Equipment shield = Weapon.createWeapon("LEVIATAN", "Knight", 0, 50000, 0, 5);
         List<Equipment> warriorEquipment = new ArrayList<>();//list ของสวมใส่
         warriorEquipment.add(sword);
         warriorEquipment.add(shield);
         warrior.equipAccessory(warriorEquipment);//ใส่ของสวมใส่ที่เก็บไว้ใน list
-
+        warrior.UpLevel();
         System.out.println("-------------------------------------------");
         System.out.println("Warrior Stats:");
         System.out.println("-------------------------------------------");
@@ -23,12 +30,11 @@ public class Main {
         System.out.println("Run Speed: " + warrior.getRunSpeed(warrior.getLevel()));
         System.out.println("-------------------------------------------");
 
-        Mage mage = new Mage("อุเกว","Mage",120,100,30,5,100,30,25);
-        Equipment staff = Weapon.createWeapon("ก๋วยเตี๋ยว","Mage",5000,0,10000,2);
+        Mage mage = new Mage("PP","Mage");
+        Equipment wand = Weapon.createWeapon("CLIGATIAN","Mage",1000,500,10000,2);
         List<Equipment> mageEquipment = new ArrayList<>();
-        mageEquipment.add(staff);
+        mageEquipment.add(wand);
         mage.equipAccessory(mageEquipment);
-
         System.out.println("-------------------------------------------");
         System.out.println("Mage Stats:");
         System.out.println("-------------------------------------------");

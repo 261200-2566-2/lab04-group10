@@ -2,37 +2,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mage {
-    private String name;
-    private String Job;
-    private int level;
-    private int Hp;
-    private int Atk;
-    private int Def;
-    private int mana;
-    private int stamina;
-    private int runSpeed;
+    private String name , Job;
+    private int level , Hp , Exp , Max_Exp , Max_Hp = 100 , Atk , Def , mana , Max_Mana = 200 , runSpeed;
     private List<Equipment> Equipments;
 
-    public Mage(String name, String Job, int level, int Hp, int Atk, int Def, int mana, int stamina, int runSpeed) {
+    public Mage(String name, String Job) {
         this.name = name;
         this.Job = Job;
-        this.level = level;
-        this.Hp = Hp;
-        this.Atk = Atk;
-        this.Def = Def;
-        this.mana = mana;
-        this.stamina = stamina;
-        this.runSpeed = runSpeed;
+        this.level = 1;
+        this.Exp = 0;
+        this.Max_Exp = 100;
+        this.Hp = Max_Hp;
+        this.Atk = 10;
+        this.Def = 5;
+        this.mana = Max_Mana;
+        this.runSpeed = 10;
         this.Equipments = new ArrayList<>();
     }
     public void equipAccessory(List<Equipment> equipmentList) {
         for (Equipment equipment : equipmentList) {
             if (equipment.getJob() == null || !equipment.getJob().equals(this.Job)) {
-                System.out.println(this.name + " ใส่ " + equipment.getName() + " ไม่ได้");
+                System.out.println(this.name + " Can't equip " + equipment.getName());
             } else {
                 this.Equipments.add(equipment);
-                System.out.println(this.name + " ใส่ " + equipment.getName() + " ได้แบ้วเย้");
+                System.out.println(this.name + " Can put " + equipment.getName());
             }
+        }
+    }
+
+    public void display(String name ,String job ){
+        Mage mage = new Mage(name,job);
+        System.out.println("-------------------------------------------");
+        System.out.println("Mage Stats:");
+        System.out.println("-------------------------------------------");
+        System.out.println("HP: " + mage.getHp(mage.getLevel()));
+        System.out.println("ATK: " + mage.getAtk(mage.getLevel()));
+        System.out.println("DEF: " + mage.getDef(mage.getLevel()));
+        System.out.println("Mana: " + mage.getMana(mage.getLevel()));
+        System.out.println("Run Speed: " + mage.getRunSpeed(mage.getLevel()));
+        System.out.println("-------------------------------------------");
+    }
+
+    public void UpLevel(){
+        while (this.Exp >= this.Max_Exp){
+            this.level++;
+            this.Exp = this.Exp-this.Max_Exp;
+            this.Max_Hp = (int) (this.Max_Exp*1.2);
         }
     }
 
