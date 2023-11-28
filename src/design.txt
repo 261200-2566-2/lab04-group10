@@ -10,7 +10,3 @@ design interface(s) to represent at least two types of accessories
 และสามารถใส่ accessories ได้หลายชิ้นในพร้อมๆกัน
 
 
-
-
-
-
