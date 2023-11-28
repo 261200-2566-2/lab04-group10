@@ -27,7 +27,7 @@ public class Warrior {
         this.Equipments = new ArrayList<>();
     }
     public void equipAccessory(List<Equipment> equipmentList) {//ใส่อุปกรณ์ตาม list
-        for (Equipment equipment : equipmentList) {
+        for (Equipment equipment : equipmentList){
             if (equipment.getJob() == null || !equipment.getJob().equals(this.Job)) {
                 System.out.println(this.name + " ใส่ " + equipment.getName() + " ไม่ได้");
             } else {
