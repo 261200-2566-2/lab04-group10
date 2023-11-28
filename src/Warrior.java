@@ -2,38 +2,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Warrior {
-    //สร้างคลาสแล้วใส่ว่าจะให้คลาสนี้มีค่าอะไรบ้าง
-    private String name;
-    private String Job;
-    private int level;
-    private int Hp;
-    private int Atk;
-    private int Def;
-    private int mana;
-    private int stamina;
-    private int runSpeed;
-    private List<Equipment> Equipments;//สร้าง list จองสวมใส่
+    private String name , Job;
+    private int level , Exp , Max_Exp , Hp , Max_Hp = 100, Atk , Def , mana , Max_mana = 100 , runSpeed;
+    private List<Equipment> Equipments;
 
-    public Warrior(String name, String Job, int level, int Hp, int Atk, int Def, int mana, int stamina, int runSpeed) {
+    public Warrior(String name, String Job) {
         this.name = name;
         this.Job = Job;
-        this.level = level;
-        this.Hp = Hp;
-        this.Atk = Atk;
-        this.Def = Def;
-        this.mana = mana;
-        this.stamina = stamina;
-        this.runSpeed = runSpeed;
+        this.level = 1;
+        this.Exp = 200;
+        this.Max_Exp = 100;
+        this.Hp = this.Max_Hp;
+        this.Atk = 20;
+        this.Def = 25;
+        this.mana = this.Max_mana;
+        this.runSpeed = 10;
         this.Equipments = new ArrayList<>();
     }
-    public void equipAccessory(List<Equipment> equipmentList) {//ใส่อุปกรณ์ตาม list
+    public void equipAccessory(List<Equipment> equipmentList) {
         for (Equipment equipment : equipmentList){
             if (equipment.getJob() == null || !equipment.getJob().equals(this.Job)) {
-                System.out.println(this.name + " ใส่ " + equipment.getName() + " ไม่ได้");
+                System.out.println(this.name + " Can't equip " + equipment.getName());
             } else {
                 this.Equipments.add(equipment);
-                System.out.println(this.name + " ใส่ " + equipment.getName() + " ได้แบ้วเย้");
+                System.out.println(this.name + " Can put " + equipment.getName());
             }
+        }
+    }
+
+    public void display(String name , String job){
+        Warrior warrior = new Warrior(name,job);
+        System.out.println("-------------------------------------------");
+        System.out.println("Warrior Stats:");
+        System.out.println("-------------------------------------------");
+        System.out.println("HP: " + warrior.getHp(warrior.getLevel()));
+        System.out.println("ATK: " + warrior.getAtk(warrior.getLevel()));
+        System.out.println("DEF: " + warrior.getDef(warrior.getLevel()));
+        System.out.println("Mana: " + warrior.getMana(warrior.getLevel()));
+        System.out.println("Run Speed: " + warrior.getRunSpeed(warrior.getLevel()));
+        System.out.println("-------------------------------------------");
+    }
+
+    public void UpLevel(){
+        while (this.Exp >= this.Max_Exp){
+            this.level++;
+            this.Exp = this.Exp-this.Max_Exp;
+            this.Max_Hp = (int) (this.Max_Exp*1.2);
         }
     }
 
