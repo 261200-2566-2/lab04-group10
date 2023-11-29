@@ -1,0 +1,30 @@
+
+design interface(s) to represent at least two types of RPG characters
+
+:เราจะสามารถใช้ฟังชั่น createCharacter ในการสร้างตัวละครซึ่งเราสามารถตั้งชื่อและตั้งชื่ออาชีพได้ตามต้องการ แต่ละอาชีพจะมี Equipment ที่ไม่เหมือนกัน
+แต่ทุกอาชีพสามารถใช้ accessory ได้ทุกชิ้น โดยการสร้างตัวละตรเราจะต้องกำหนดชื่อ,อาชีพ,พลังชีวิต,เลเวล,พลังโจมตี,พลังป้องกัน,มานา,ความเร็ว
+Method:ใช้ฟังชั่น createCharacter(name,Job,level,Hp,Atk,Def,mana,runSpeed)
+โดยจะสามาถเรียกค่าต่างๆได้ตาม interface RPGcharactor ดังนี้ getName(); เรียกชื่อมาใช้
+getJob(); เรียกอาชีพมาเพื่อตรวจว่าไอเทมชิ้นนั้นตรงกับคลาสที่ใส่รึเปล่า
+getHp(int level); เรียกพลังชีวิตที่ถูกคำนวณจาก เลเวล และ acessory(บวกกันทั้งหมด)
+getLevel(); เรียกใช้เพื่อเช็คเลเวลตัวละคร
+getDef(int level); พลังป้อกันที่คำนวณจาก เลเวล acessory และ Equipment(บวกกันทั้งหมด)
+getAtk(int level); พลังโจมตีที่คำนวณจาก เลเวล และ Equipment(บวกกันทั้งหมด)
+getMana(int level); มานาคำนวณจาก เลเวล acessory และ Equipment(บวกกันทั้งหมด)
+getRunSpeed(int level); ความเร็วที่คำนวณจาก เลเวล + acessory - Equipment
+มี getXp()และgetMax_xp() เพื่อเช็คว่าต้องการ Xp เท่าไหร่ถึงจะเลเวลอัพ
+มีฟังชั่น Uplevel() สำหรับการ เลเวลอัพ ของตัวละคร
+และฟังชั่น equipWeapon(List<Equipment> ชื่อของลิส) เริ่มต้นจะเช็คว่าอาชีพที่ใส่ตรงกันกับไอเทมหรือเปล่าจากนั้นจะทำการใส่ไอเทมชิ้นนั้น
+ซึ่งสามารถใส่ได้หลายชิ้นค่าที่คำนวณออกมาก็จะบวกรวมกันทั้งหมด
+ฟังชั่น equipAccessory(List<Accessory> equipmentList) ทำงานเหมือนฟังชั่นของ Equipment จะไม่เช็คอาชีพ สามารถใส่ได้เลยไม่ว่าจะเป็นอาชีพใดก็ตาม
+
+
+design interface(s) to represent at least two types of accessories
+
+:Equipment ของแต่ละอาชีพแยกกันซึ่ง Equipment ของอาชีพ Knight จะใส่กับคลาส Mage ไม่ได้และสามารถใส่ได้ไม่จำกัดแต่ต้องเป็นอาชีพเดียวกันกับไอเทมชิ้นนั้น
+Method: getName() รับชื่อของไอเทมชิ้นนั้น;,getJob() รับอาชีพของไอเทม;,getDamage() รับAtkที่เพิ่มขึ้น,getDefense(),getMana(),getSpeed()
+getSpeed() ของ Equipment เป็นการลดความเร็วของตัสละคร
+
+:Acessory เป็นไอเทมที่ใส่กับอาชีพอะไรก็ได้
+Method: getName(),getHp(),getDefense(),getMana,getSpeed()
+getSpeed() ของ Acessory เป็นการเพิ่มความเร็วของตัสละคร
