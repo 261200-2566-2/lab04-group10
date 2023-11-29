@@ -1,7 +1,6 @@
-public interface Equipment {
+public interface Accessory {
     String getName();
-    String getJob();
-    int getDamage();
+    int getHp();
     int getDefense();
     int getMana();
     int getSpeed();
