@@ -6,6 +6,6 @@ public interface RPGcharactor {
     int getLevel();
     int getDef(int level);
     int getAtk(int level);
-    int getMana(int level);
     int getRunSpeed(int level);
+    int getMana(int level);
 }
